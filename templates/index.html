@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <title>MusicGenreClassifier</title>
+    <meta charset="utf-8" />
+    <link rel='icon' href='../static/image/Spotifyicon.png' type='image/x-icon'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=eO3UapjcLjooA0NmBhu9hsE7KzQHc-Gn0VnOWDF9DOpmt5X26c-9fbNl_8IGNgZeWNNM2MDSsjJUO6E4WYdTOqXPXSnTkRXZgLNrIWV67evsL8Y3og-fc16ciH7_yj_ywCIzcNb17kZV9hytsoMngw" charset="UTF-8"></script><style>
+        body{
+            background-image: url(../static/image/background1.jpg);
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+        .btn{
+            width:15%;
+            background-color:gray;
+            padding: 8px;
+            text-align:center;
+            border: none;
+            border-radius: 10px;
+            cursor:pointer;
+            color:white
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading"></div>
+
+<div id="content" class="container" style="margin-top: 70px">
+    <div class="card">
+        <div class="card-container">
+            <img src="../static/image/Spotify.png" alt="MusicGenreClassifier"
+                style="display: block; margin-left: auto; margin-right: auto; width: 35%;">
+
+<br>
+<class = "content" style="word-wrap"; "break-word"; width: "900px"; text-align = "justify";>
+    <p>
+    Music has been known to humans for times immemorial. Ever since the melody of instruments has fallen on the ears of humans, it has implanted the seeds of emotions that are otherwise hard to achieve. 
+    Music Genre Classification or classification of music into different categories or genres is a concept that helps the masses to differentiate between 2 genres based on their composition or the beats they withhold. <br>
+    From K-Pop to Jazz, music lovers rely on the technology of music genre classification and are able to listen to songs as per their preferences. 
+    While it takes only a click for a listener to switch from Jazz music to Rap, there is certainly much more beneath the surface that fuels our love for music. 
+    <p>
+<br>
+<form action="{{ url_for('predict')}}" method="post"  enctype="multipart/form-data">
+    <input type="file" name="UploadedAudio" accept=".mp3,.ogg,.wav,.flac"/>
+
+    <button type="submit" class="btn"> Predict </button>
+</form>
+<br>
+<br>
+
+{{ prediction_text }}
+
+<br>
+<br>
+<br>
